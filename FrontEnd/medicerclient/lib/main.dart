@@ -12,6 +12,8 @@ import 'package:medicerclient/Splash/SplashScreen.dart';
 // util import
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'MediCer',
+      debugShowCheckedModeBanner: false,
+      title: 'App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
