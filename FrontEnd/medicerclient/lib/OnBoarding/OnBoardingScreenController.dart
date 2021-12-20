@@ -1,5 +1,4 @@
 // package or library import
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // screen import
@@ -12,7 +11,7 @@ import 'package:medicerclient/OnBoarding/OnBoardingScreen.dart';
 // util import
 
 class OnBoardingScreenController extends GetxController {
-  var onBoardingSlideIndex = 2.obs;
+  var onBoardingSlideIndex = 1.obs;
 
   @override
   void onInit() {

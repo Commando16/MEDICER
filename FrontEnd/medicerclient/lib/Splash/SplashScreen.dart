@@ -28,21 +28,18 @@ class SplashScreen extends StatelessWidget {
       logoSize = screenHeight * 0.25;
     }
 
-    // TODO: Remove Safearea
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: logoSize),
-          child: Image.asset(
-            'images/Logos/Logo1.png',
-          ),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('images/Backgrounds/SplashBG1.png'),
-              fit: BoxFit.cover,
-            ),
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(horizontal: logoSize),
+        child: Image.asset(
+          'images/Logos/Logo1.png',
+        ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/Backgrounds/SplashBG1.png'),
+            fit: BoxFit.cover,
           ),
         ),
       ),
