@@ -61,15 +61,17 @@ class HomeScreen extends StatelessWidget {
                     Column(
                       children: [
                         Expanded(
-                          flex: 2,
+                          flex: 5,
                           child: Container(
                             color: ColorUtil.primaryTeal,
                           ),
                         ),
                         //
                         Expanded(
-                          flex: 8,
+                          flex: 15,
                           child: Container(
+                            width: double.infinity,
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
                             decoration: BoxDecoration(
                               color: ColorUtil.primaryWhite,
                               borderRadius: BorderRadius.only(
@@ -77,6 +79,7 @@ class HomeScreen extends StatelessWidget {
                                 topLeft: Radius.circular(20.0),
                               ),
                             ),
+                            child: UserInformation(),
                           ),
                         )
                       ],
@@ -110,6 +113,119 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class UserInformation extends StatelessWidget {
+  const UserInformation({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(height: 70.0),
+        //
+        // Name text
+        Text(
+          "Pankaj Singh",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: ColorUtil.primaryTeal,
+            fontWeight: FontWeight.w900,
+            fontSize: 28.0,
+            letterSpacing: 2.0,
+            wordSpacing: 2.0,
+          ),
+        ),
+        // Name text ends
+        //
+        SizedBox(height: 30.0),
+        //
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "male",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                color: ColorUtil.primaryGrey,
+                fontWeight: FontWeight.w900,
+                fontSize: 24.0,
+                letterSpacing: 2.0,
+                wordSpacing: 2.0,
+              ),
+            ),
+            //
+            Text(
+              "82.5kg",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: ColorUtil.primaryGrey,
+                fontWeight: FontWeight.w900,
+                fontSize: 24.0,
+                letterSpacing: 2.0,
+                wordSpacing: 2.0,
+              ),
+            ),
+            //
+            Text(
+              "45yr",
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                color: ColorUtil.primaryGrey,
+                fontWeight: FontWeight.w900,
+                fontSize: 24.0,
+                letterSpacing: 2.0,
+                wordSpacing: 2.0,
+              ),
+            ),
+          ],
+        ),
+        //
+        //
+        SizedBox(height: 30.0),
+        //
+        // dibetic status text
+        Container(
+          width: double.infinity,
+          child: Text(
+            "diabetic status : negtive",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: ColorUtil.primaryGrey,
+              fontWeight: FontWeight.w900,
+              fontSize: 20.0,
+              letterSpacing: 1.5,
+              wordSpacing: 2.0,
+            ),
+          ),
+        ),
+        // dibetic status text ends
+        //
+        SizedBox(height: 20.0),
+        //
+        // current health status text
+        Container(
+          width: double.infinity,
+          child: Text(
+            "Current health status : healthy",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: ColorUtil.primaryGrey,
+              fontWeight: FontWeight.w900,
+              fontSize: 20.0,
+              letterSpacing: 1.5,
+              wordSpacing: 2.0,
+            ),
+          ),
+        ),
+        // current health status text ends
+        //
+        SizedBox(height: 50.0),
+        //
+      ],
     );
   }
 }
