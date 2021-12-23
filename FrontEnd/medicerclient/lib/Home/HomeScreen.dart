@@ -223,8 +223,109 @@ class UserInformation extends StatelessWidget {
         ),
         // current health status text ends
         //
+        SizedBox(height: 20.0),
+        //
+        // daily form fill status text
+        Container(
+          width: double.infinity,
+          child: Text(
+            "Daily report form filled : No",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: ColorUtil.primaryGrey,
+              fontWeight: FontWeight.w900,
+              fontSize: 20.0,
+              letterSpacing: 1.5,
+              wordSpacing: 2.0,
+            ),
+          ),
+        ),
+        // daily form fill status text ends
+        //
         SizedBox(height: 50.0),
         //
+        // daily report fill button
+        Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 15.0),
+              // color: Colors.amber,
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  decoration: BoxDecoration(
+                    color: ColorUtil.primaryTeal,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Fill Daily repost",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: ColorUtil.primaryWhite,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 20.0,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            //
+            Positioned(
+              top: 0.0,
+              right: 50.0,
+              child: Container(
+                padding: EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                  color: ColorUtil.primaryWhite,
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.warning_amber_rounded,
+                    color: Colors.red[700],
+                    size: 25.0,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+        // daily report fill button ends
+        //
+        SizedBox(height: 10.0),
+        //
+        // contact button
+        Row(
+          children: [
+            Expanded(
+              child: SizedBox(),
+            ),
+            //
+            GestureDetector(
+              onTap: () {
+                debugPrint("contact button pressed");
+              },
+              child: Container(
+                padding: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: ColorUtil.primaryTeal,
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                child: Icon(
+                  Icons.call,
+                  color: ColorUtil.primaryWhite,
+                  size: 30,
+                ),
+              ),
+            ),
+          ],
+        ),
+
+        // contact button ends
       ],
     );
   }
