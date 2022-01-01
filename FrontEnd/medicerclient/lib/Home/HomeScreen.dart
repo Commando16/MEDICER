@@ -1,6 +1,6 @@
 // package or library import
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 // screen import
 
@@ -99,7 +99,8 @@ class HomeScreen extends StatelessWidget {
                           foregroundImage: AssetImage(
                             "images/DefaultImages/defaultUserImage1.png",
                           ),
-                          backgroundColor: ColorUtil.primaryWhite,
+                          backgroundColor: ColorUtil
+                              .primaryWhite, //TODO: check if grey color suits more
                           radius: screenWidth * 0.2,
                         ),
                       ),

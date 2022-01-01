@@ -203,7 +203,9 @@ class LoginFormState extends State<LoginForm> {
                   debugPrint(loginScreenController.passwordInputTEC.text);
                   debugPrint("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
-                  if (_formKey.currentState!.validate()) {}
+                  if (_formKey.currentState!.validate()) {
+                    loginScreenController.loginWithEmailPassword();
+                  }
                 },
                 child: Container(
                   width: double.infinity,

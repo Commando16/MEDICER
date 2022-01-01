@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 
 // screen import
 // import 'package:medicerclient/OnBoarding/OnBoardingScreen.dart';
-// import 'package:medicerclient/Login/LoginScreen.dart';
+import 'package:medicerclient/Login/LoginScreen.dart';
 // import 'package:medicerclient/RegistrationNotice/RegistrationNoteiceScreen.dart';
-import 'package:medicerclient/Home/HomeScreen.dart';
+// import 'package:medicerclient/Home/HomeScreen.dart';
+// import 'package:medicerclient/Contact/ContactScreen.dart';
 
 // model import
 
@@ -40,9 +41,10 @@ class SplashScreenController extends GetxController {
       // }
 
       // Get.to(OnBoardingScreen()); //TODO: open this and comment or remove all the other screen routes
-      // Get.to(LoginScreen());
+      Get.to(LoginScreen());
       // Get.to(RegistrationNoteiceScreen());
-      Get.to(HomeScreen());
+      // Get.to(HomeScreen());
+      // Get.to(ContactScreen());
     });
   }
 }
