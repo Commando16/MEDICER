@@ -12,6 +12,7 @@ import 'package:medicerclient/OnBoarding/OnBoardingScreen.dart';
 
 class OnBoardingScreenController extends GetxController {
   var onBoardingSlideIndex = 1.obs;
+  var skipButtonVisibility = true.obs;
 
   @override
   void onInit() {

@@ -1,7 +1,9 @@
 // package or library import
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-// import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:medicerclient/Login/LoginScreen.dart';
 
 // screen import
 
@@ -21,6 +23,7 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final onBoardingScreenController = Get.put(OnBoardingScreenController());
+    CarouselController onBoardSlidecarouselController = CarouselController();
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -44,7 +47,40 @@ class OnBoardingScreen extends StatelessWidget {
               child: SizedBox(),
             ),
             //
-            OnBoardingSlide3(),
+
+            CarouselSlider(
+              carouselController: onBoardSlidecarouselController,
+              items: [
+                OnBoardingSlide1(),
+                OnBoardingSlide2(),
+                OnBoardingSlide3(),
+                OnBoardingSlide4(),
+              ],
+              options: CarouselOptions(
+                // height: 180.0,
+                enlargeCenterPage: false,
+                autoPlay: false,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: false,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                onPageChanged: (index, reason) {
+                  print(index);
+                  onBoardingScreenController.onBoardingSlideIndex.value =
+                      index + 1;
+                  if (onBoardingScreenController.onBoardingSlideIndex.value ==
+                      4) {
+                    onBoardingScreenController.skipButtonVisibility.value =
+                        false;
+                  } else {
+                    onBoardingScreenController.skipButtonVisibility.value =
+                        true;
+                  }
+                },
+              ),
+            ),
+            //OnBoardingSlide4(),
             //
             Expanded(
               flex: 1,
@@ -52,34 +88,37 @@ class OnBoardingScreen extends StatelessWidget {
             ),
             //
             // dot indicator
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: slideIndex
-                  .map(
-                    (i) => Container(
-                      height: (onBoardingScreenController
-                                  .onBoardingSlideIndex.value ==
-                              i)
-                          ? 12
-                          : 8,
-                      width: (onBoardingScreenController
-                                  .onBoardingSlideIndex.value ==
-                              i)
-                          ? 12
-                          : 8,
-                      margin: EdgeInsets.symmetric(horizontal: 10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: (onBoardingScreenController.onBoardingSlideIndex
-                                    .toInt() ==
+            Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: slideIndex
+                    .map(
+                      (i) => Container(
+                        height: (onBoardingScreenController
+                                    .onBoardingSlideIndex.value ==
                                 i)
-                            ? ColorUtil.primaryTeal
-                            : ColorUtil.primaryGrey,
+                            ? 12
+                            : 8,
+                        width: (onBoardingScreenController
+                                    .onBoardingSlideIndex.value ==
+                                i)
+                            ? 12
+                            : 8,
+                        margin: EdgeInsets.symmetric(horizontal: 10.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          color: (onBoardingScreenController
+                                      .onBoardingSlideIndex
+                                      .toInt() ==
+                                  i)
+                              ? ColorUtil.primaryTeal
+                              : ColorUtil.primaryGrey,
+                        ),
                       ),
-                    ),
-                  )
-                  .toList(),
+                    )
+                    .toList(),
+              ),
             ),
             // dot indicator ends
             //
@@ -89,31 +128,39 @@ class OnBoardingScreen extends StatelessWidget {
             ),
             //
             //Skip button
-            GestureDetector(
-              onTap: () {
-                debugPrint("skip pressed");
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "skip",
-                    style: TextStyle(
-                      color: ColorUtil.primaryGrey,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20.0,
-                      letterSpacing: 2.0,
-                    ),
+            Obx(
+              () => Visibility(
+                visible: onBoardingScreenController.skipButtonVisibility.value,
+                child: GestureDetector(
+                  onTap: () {
+                    debugPrint("skip pressed");
+                    onBoardSlidecarouselController.jumpToPage(4);
+                    onBoardingScreenController.skipButtonVisibility.value =
+                        false;
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "skip",
+                        style: TextStyle(
+                          color: ColorUtil.primaryGrey,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20.0,
+                          letterSpacing: 2.0,
+                        ),
+                      ),
+                      //
+                      SizedBox(width: 5.0),
+                      //
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 20.0,
+                        color: ColorUtil.primaryGrey,
+                      )
+                    ],
                   ),
-                  //
-                  SizedBox(width: 5.0),
-                  //
-                  Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: 20.0,
-                    color: ColorUtil.primaryGrey,
-                  )
-                ],
+                ),
               ),
             ),
             //skip button ends
@@ -232,6 +279,60 @@ class OnBoardingSlide3 extends StatelessWidget {
             ),
           ),
           // slide text ends
+        ],
+      ),
+    );
+  }
+}
+
+class OnBoardingSlide4 extends StatelessWidget {
+  const OnBoardingSlide4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          // slide image
+          Text(
+            "Lets Get In",
+            style: TextStyle(
+              color: ColorUtil.primaryTeal,
+              fontWeight: FontWeight.w800,
+              fontSize: 32.0,
+            ),
+          ),
+          // slide image ends
+          //
+          SizedBox(height: 100.0),
+          //
+          // go to login button
+          GestureDetector(
+            onTap: () {
+              // Validate returns true if the form is valid, or false otherwise.
+              Get.to(LoginScreen());
+            },
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 10.0),
+              margin: EdgeInsets.symmetric(horizontal: 100.0),
+              decoration: BoxDecoration(
+                color: ColorUtil.primaryTeal,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(
+                "Go To Login",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  letterSpacing: 2.0,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          // go to login button ends
         ],
       ),
     );
