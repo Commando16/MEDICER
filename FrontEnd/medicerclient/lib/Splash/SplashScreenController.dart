@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 // screen import
 import 'package:medicerclient/OnBoarding/OnBoardingScreen.dart';
 // import 'package:medicerclient/Login/LoginScreen.dart';
-// import 'package:medicerclient/RegistrationNotice/RegistrationNoteiceScreen.dart';
+import 'package:medicerclient/Registration/RegistrationScreen.dart';
+// import 'package:medicerclient/Registration/RegistrationNoteiceScreen.dart';
 // import 'package:medicerclient/Home/HomeScreen.dart';
 // import 'package:medicerclient/Contact/ContactScreen.dart';
 
@@ -40,9 +41,11 @@ class SplashScreenController extends GetxController {
       //   Get.off(() => LoginScreen());
       // }
 
-      Get.to(
-          OnBoardingScreen()); //TODO: open this and comment or remove all the other screen routes
+      // Get.to(
+      //     OnBoardingScreen()); //TODO: open this and comment or remove all the other screen routes
+
       // Get.to(LoginScreen());
+      Get.to(RegistrationScreen());
       // Get.to(RegistrationNoteiceScreen());
       // Get.to(HomeScreen());
       // Get.to(ContactScreen());

@@ -17,7 +17,7 @@ class ApiServices {
   //##################### user login ###################
   static Future<UserLoginWithEmailPasswordAPIModel?>
       loginUserWithEmailPasswordAPICall(body) async {
-    print("********in API services");
+    print("********in user login API services");
     print(body);
 
     final response = await http.post(Uri.parse(UrlUtil.USER_LOGIN), body: body);
@@ -51,5 +51,13 @@ class ApiServices {
   }
 
   //##################### user login ends ###################
+  //
+  //##################### user register ###################
+  static Future<UserLoginWithEmailPasswordAPIModel?>
+      registerUserWithEmailPasswordApiModelCall(body) async {
+    print("********in user register API services");
+    print(body);
+  }
+  //##################### user register ends ###################
 
 }
