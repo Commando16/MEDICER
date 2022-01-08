@@ -16,7 +16,10 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final splashScreenController = Get.put(SplashScreenController());
+    // The controller variable may not be in use but its init function trigger the
+    // the screen decider funciton which in turn decide the page to show.
+    // DO NOT REMOVE THE LINE BENETH
+    final splashScreenController = Get.put(SplashScreenController());
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
