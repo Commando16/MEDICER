@@ -2,7 +2,7 @@
 import 'package:get/get.dart';
 
 // screen import
-import 'package:medicerclient/OnBoarding/OnBoardingScreen.dart';
+// import 'package:medicerclient/OnBoarding/OnBoardingScreen.dart';
 
 // model import
 

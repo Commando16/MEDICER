@@ -6,7 +6,7 @@ import 'package:medicerclient/Home/HomeScreen.dart';
 // screen import
 
 // models import
-import 'package:medicerclient/Login/LoginScreenModel.dart';
+import 'package:medicerclient/Registration/RegistrationScreenModel.dart';
 
 // controller import
 
@@ -24,8 +24,9 @@ class RegistrationScreenController extends GetxController {
   final TextEditingController passwordInputTEC =
       TextEditingController(); // TCE - Text Editing Controler
 
-  // Rxn<UserLoginWithEmailPasswordAPIModel> userLoginWithEmailPasswordData =
-  //     Rxn<UserLoginWithEmailPasswordAPIModel>();
+  Rxn<RegisterUserWithEmailPasswordApiModel>
+      registerUserWithEmailPasswordApiModelData =
+      Rxn<RegisterUserWithEmailPasswordApiModel>();
 
   @override
   void onInit() {
@@ -44,11 +45,12 @@ class RegistrationScreenController extends GetxController {
 
   registerUserWithEmailPassword() async {
     var body = {
-      "UserLoginEmailInput": emailInputTEC.text,
-      "UserLoginPasswordInput": passwordInputTEC.text,
+      "UserInsertEmailInput": emailInputTEC.text,
+      "UserInsertPasswordInput": passwordInputTEC.text,
     };
 
-    var response = await ApiServices.loginUserWithEmailPasswordAPICall(body);
+    var response =
+        await ApiServices.registerUserWithEmailPasswordApiModelCall(body);
 
     if (response != null) {
       // userLoginWithEmailPasswordData.value = response;

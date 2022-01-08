@@ -1,11 +1,11 @@
 // package import
 import 'dart:convert';
 
-UserLoginWithEmailPasswordAPIModel UserLoginWithEmailPasswordAPIModelFromJson(
+UserLoginWithEmailPasswordAPIModel userLoginWithEmailPasswordAPIModelFromJson(
         String str) =>
     UserLoginWithEmailPasswordAPIModel.fromJson(json.decode(str));
 
-String UserLoginWithEmailPasswordAPIModelToJson(
+String userLoginWithEmailPasswordAPIModelToJson(
         UserLoginWithEmailPasswordAPIModel data) =>
     json.encode(data.toJson());
 

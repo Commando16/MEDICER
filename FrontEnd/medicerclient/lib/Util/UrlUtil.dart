@@ -3,4 +3,5 @@ class UrlUtil {
 
   // USER API URLs
   static const String USER_LOGIN = BASE_URL + "loginUser";
+  static const String USER_REGISTER = BASE_URL + "insertUser";
 }

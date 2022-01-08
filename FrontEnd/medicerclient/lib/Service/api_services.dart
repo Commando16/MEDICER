@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 // models import
 import 'package:medicerclient/Login/LoginScreenModel.dart';
+import 'package:medicerclient/Registration/RegistrationScreenModel.dart';
 
 // utility import
 import 'package:medicerclient/Util/UrlUtil.dart';
@@ -21,8 +22,7 @@ class ApiServices {
     print(body);
 
     final response = await http.post(Uri.parse(UrlUtil.USER_LOGIN), body: body);
-    print("delete form wish list response \n ${response.body}");
-    print("print after");
+    print("login user with email password response \n ${response.body}");
 
     var responsed = (json.decode(response.body));
 
@@ -52,11 +52,43 @@ class ApiServices {
 
   //##################### user login ends ###################
   //
+  //
   //##################### user register ###################
-  static Future<UserLoginWithEmailPasswordAPIModel?>
+  static Future<RegisterUserWithEmailPasswordApiModel?>
       registerUserWithEmailPasswordApiModelCall(body) async {
     print("********in user register API services");
     print(body);
+
+    final response =
+        await http.post(Uri.parse(UrlUtil.USER_REGISTER), body: body);
+
+    print("register user with email password response \n ${response.body}");
+
+    var responsed = (json.decode(response.body));
+
+    if (responsed["status"] == ConstantUtil.API_SUCCESS) {
+      RegisterUserWithEmailPasswordApiModel
+          registerUserWithEmailPasswordApiModelData =
+          new RegisterUserWithEmailPasswordApiModel.fromJson(responsed);
+
+      return registerUserWithEmailPasswordApiModelData;
+    } else if (responsed["status"] == ConstantUtil.USER_ALREADY_EXIST) {
+      Fluttertoast.showToast(
+        msg: "User already registered",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+      );
+      return null;
+    } else if (responsed["status"] == ConstantUtil.INTERNAL_SERVER_ERROR) {
+      Fluttertoast.showToast(
+        msg: "Something went wrong with the server",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+      );
+      return null;
+    }
   }
   //##################### user register ends ###################
 

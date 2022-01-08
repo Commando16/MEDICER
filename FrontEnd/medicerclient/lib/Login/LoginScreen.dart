@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 // controller import
 import 'package:medicerclient/Login/LoginScreenController.dart';
+import 'package:medicerclient/Registration/RegistrationScreen.dart';
 
 // util import
 import 'package:medicerclient/Util/ColorUtil.dart';
@@ -238,6 +239,7 @@ class LoginFormState extends State<LoginForm> {
               GestureDetector(
                 onTap: () {
                   debugPrint("Register button tapped");
+                  Get.to(RegistrationScreen());
                 },
                 child: RichText(
                   textAlign: TextAlign.center,
