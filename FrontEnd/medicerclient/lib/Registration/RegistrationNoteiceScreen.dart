@@ -1,5 +1,7 @@
 // package or library import
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medicerclient/Contact/ContactScreen.dart';
 
 // screen import
 
@@ -127,6 +129,7 @@ class RegistrationNoteiceScreen extends StatelessWidget {
                 onTap: () {
                   debugPrint(
                       "Contact button or register notice screen pressed.");
+                  Get.to(ContactScreen());
                 },
                 child: Container(
                   width: double.infinity,

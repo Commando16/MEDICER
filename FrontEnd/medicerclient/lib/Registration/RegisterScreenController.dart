@@ -1,7 +1,7 @@
 // package or library import
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medicerclient/Home/HomeScreen.dart';
+import 'package:medicerclient/Registration/RegistrationNoteiceScreen.dart';
 
 // screen import
 
@@ -58,7 +58,7 @@ class RegistrationScreenController extends GetxController {
       print(response.status);
       print(response.msg);
       print("+++++++++++++++++++++++++++++++++++++++++++");
-      Get.to(HomeScreen());
+      Get.to(RegistrationNoteiceScreen());
     }
   }
 }
