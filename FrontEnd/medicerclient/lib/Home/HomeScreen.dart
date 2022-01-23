@@ -1,6 +1,7 @@
 // package or library import
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:medicerclient/Contact/ContactScreen.dart';
 
 // screen import
 
@@ -309,6 +310,7 @@ class UserInformation extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 debugPrint("contact button pressed");
+                Get.to(ContactScreen());
               },
               child: Container(
                 padding: EdgeInsets.all(10.0),

@@ -1,0 +1,23 @@
+// package or library import
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+// screen import
+// import 'package:medicerclient/Login/LoginScreen.dart';
+// import 'package:medicerclient/Registration/RegistrationScreen.dart';
+// import 'package:medicerclient/Registration/RegistrationNoteiceScreen.dart';
+// import 'package:medicerclient/Home/HomeScreen.dart';
+// import 'package:medicerclient/Contact/ContactScreen.dart';
+
+
+// model import
+
+// controller import
+import 'package:medicerclient/Splash/SplashScreenController.dart';
+
+
+// util import
+import 'package:medicerclient/Util/ColorUtil.dart';
+import 'package:medicerclient/Util/UrlUtil.dart';
+import 'package:medicerclient/Util/ConstantUtil.dart';
+

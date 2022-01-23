@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 // models import
 import 'package:medicerclient/Login/LoginScreenModel.dart';
 import 'package:medicerclient/Registration/RegistrationScreenModel.dart';
+import 'package:medicerclient/Question/QuestionScreenModel.dart';
 
 // utility import
 import 'package:medicerclient/Util/UrlUtil.dart';
@@ -90,6 +91,45 @@ class ApiServices {
       return null;
     }
   }
+
   //##################### user register ends ###################
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //##################### fetch all question ###################
+  static Future<GetAllQuestionApiModel?> getAllQuestionApiModelCall(
+      body) async {
+    print("********in all question fetch API services");
+    print(body);
+
+    final response =
+        await http.post(Uri.parse(UrlUtil.ALL_QUESTION), body: body);
+
+    print("register user with email password response \n ${response.body}");
+
+    var responsed = (json.decode(response.body));
+
+    if (responsed["status"] == ConstantUtil.API_SUCCESS) {
+      GetAllQuestionApiModel getAllQuestionApiModelData =
+          new GetAllQuestionApiModel.fromJson(responsed);
+
+      return getAllQuestionApiModelData;
+    } else if (responsed["status"] == ConstantUtil.INTERNAL_SERVER_ERROR) {
+      Fluttertoast.showToast(
+        msg: "Something went wrong with the server",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+      );
+      return null;
+    }
+  }
+  //##################### fetch all question ends ###################
 
 }
